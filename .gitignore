@@ -1,0 +1,16 @@
+sbadmin
+sbadmin/
+/sbadmin
+misc/
+misc
+/misc
+class.config.php
+files/
+phpmyadmin/
+ssl/
+.DS_Store
+files
+/files
+php/
+php
+/php
