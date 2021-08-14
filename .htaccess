@@ -1,0 +1,55 @@
+# Needed before any rewriting
+RewriteEngine On
+
+### Built using the .htaccess 301 Redirect Generator from Web Site Advantage
+### https://websiteadvantage.com.au/HtAccess-301-Redirect-Generator
+### Place after 'RewriteEngine On' and before any CMS specific rewrite rules
+
+## 301 Redirects
+# 301 Redirect 1
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=6$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^download\.php$ https://shine.grovedesigns.co/download.php?id=6 [R=301,NE,NC,L]
+
+# 301 Redirect 2
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=3$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^download\.php$ https://shine.grovedesigns.co/download.php?id=3 [R=301,NE,NC,L]
+
+# 301 Redirect 3
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=1$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^download\.php$ https://shine.grovedesigns.co/download.php?id=1 [R=301,NE,NC,L]
+
+# 301 Redirect 4
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=2$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^download\.php$ https://shine.grovedesigns.co/download.php?id=2 [R=301,NE,NC,L]
+
+# 301 Redirect 5
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=2$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^appcast\.php$ https://shine.grovedesigns.co/appcast.php?id=2 [R=301,NE,NC,L]
+
+# 301 Redirect 6
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=3$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^appcast\.php$ https://shine.grovedesigns.co/appcast.php?id=3 [R=301,NE,NC,L]
+
+# 301 Redirect 7
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=1$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^appcast\.php$ https://shine.grovedesigns.co/appcast.php?id=1 [R=301,NE,NC,L]
+
+# 301 Redirect 8
+RewriteCond %{HTTP_HOST}  ^shine\.jonbrown\.org$ [NC]
+RewriteCond %{QUERY_STRING}  ^id=6$ [NC]
+RewriteCond %{HTTPS} =on
+RewriteRule ^appcast\.php$ https://shine.grovedesigns.co/appcast.php?id=6 [R=301,NE,NC,L]
