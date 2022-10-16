@@ -78,11 +78,11 @@
   
                                 <div class="col-lg-12">
                                     
-                                   <form action="user-edit.php?id=<?PHP echo $u->id; ?>" method="post">
-								<p><label for="username">Username</label> <input type="text" name="username" id="username" value="<?PHP echo $username; ?>" class="form-control"></p>
+                                   <form action="user-edit.php?id=<?PHP echo htmlspecialchars($u->id); ?>" method="post">
+								<p><label for="username">Username</label> <input type="text" name="username" id="username" value="<?PHP echo htmlspecialchars($username); ?>" class="form-control"></p>
 								<p><label for="password">Password</label> <input type="password" name="password" id="password" value="" class="form-control"><div class="alert alert-info"><span class="info">Leave the password blank if you do not wish to change it</span></div></p>
-								<p><label for="twitter">Twitter Username</label> <input type="text" name="twitter" id="twitter" value="<?PHP echo $twitter; ?>" class="form-control"><div class="alert alert-info"><span class="info">We'll use your Twitter avatar throughout the site</span></div></p>
-								<p><label for="email">Email</label> <input type="text" name="email" id="email" value="<?PHP echo $email; ?>" class="form-control"></p>
+								<p><label for="twitter">Twitter Username</label> <input type="text" name="twitter" id="twitter" value="<?PHP echo htmlspecialchars($twitter); ?>" class="form-control"><div class="alert alert-info"><span class="info">We'll use your Twitter avatar throughout the site</span></div></p>
+								<p><label for="email">Email</label> <input type="text" name="email" id="email" value="<?PHP echo htmlspecialchars($email); ?>" class="form-control"></p>
 								<p><label for="level">Level</label>
 								    <select name="level" id="level" class="form-control">
                                         <option <?PHP if($level == 'user') echo 'selected="selected"'; ?> value="user">User</option>
