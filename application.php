@@ -122,20 +122,20 @@ error_reporting(E_ALL ^ E_NOTICE);
  <h1 class="page-header">Applications</h1>
 
 <ul class="nav nav-pills">
-    <li class="nav-link"><a class="nav-link active" href="application.php?id=<?PHP echo $app->id; ?>"><?PHP echo $app->name; ?></a></li>
-    <li class="nav-link"><a class="nav-link" href="versions.php?id=<?PHP echo $app->id; ?>">Versions</a></li>
-    <li class="nav-link"><a class="nav-link" href="version-new.php?id=<?PHP echo $app->id; ?>">Release New Version</a></li>
+    <li class="nav-link"><a class="nav-link active" href="application.php?id=<?PHP echo htmlspecialchars($app->id); ?>"><?PHP echo htmlspecialchars($app->name); ?></a></li>
+    <li class="nav-link"><a class="nav-link" href="versions.php?id=<?PHP echo htmlspecialchars($app->id); ?>">Versions</a></li>
+    <li class="nav-link"><a class="nav-link" href="version-new.php?id=<?PHP echo htmlspecialchars($app->id); ?>">Release New Version</a></li>
 </ul>
 
 
-<?PHP echo $Error; ?>
+<?PHP echo htmlspecialchars($Error); ?>
 
 
 </div>
 
 </div>
 
-<form action="application.php?id=<?PHP echo $app->id; ?>" method="post">
+<form action="application.php?id=<?PHP echo htmlspecialchars($app->id); ?>" method="post">
 
 <div class="row" style="margin-top: 20px;">
 <div class="col-lg-12">
@@ -151,12 +151,12 @@ Basic Stuff
 
 <div class="form-group">
 <label for="name">Application Name</label>
-<input type="text" name="name" id="name" value="<?PHP echo $name; ?>" class="form-control">
+<input type="text" name="name" id="name" value="<?PHP echo htmlspecialchars($name); ?>" class="form-control">
 </div>
 
 <div class="form-group">
 <label for="link">Base Download URL</label>
-<input type="text" name="link" id="link" value="<?PHP echo $link; ?>" class="form-control">
+<input type="text" name="link" id="link" value="<?PHP echo htmlspecialchars($link); ?>" class="form-control">
 <br>
 <div class="alert alert-info">
 <span class="info">Ex: Your application's base download url</span>
@@ -165,7 +165,7 @@ Basic Stuff
 
 <div class="form-group">
 <label for="dirpath">Base File Directory Path</label>
-<input type="text" name="dirpath" id="dirpath" value="<?PHP echo $dirpath; ?>" class="form-control">
+<input type="text" name="dirpath" id="dirpath" value="<?PHP echo htmlspecialchars($dirpath); ?>" class="form-control">
 <br>
 <div class="alert alert-info">
 <span class="info">Ex: Your application's base upload file path</span>
@@ -173,7 +173,7 @@ Basic Stuff
 
 <div class="form-group">
 <label for="url">Bundle Name</label>
-<input type="text" class="form-control" name="bundle_name" id="bundle_name" value="<?PHP echo $bundle_name; ?>">
+<input type="text" class="form-control" name="bundle_name" id="bundle_name" value="<?PHP echo htmlspecialchars($bundle_name); ?>">
 <br>
 <div class="alert alert-info">
 <span class="info">Ex: MyApplication.app</span>
@@ -181,7 +181,7 @@ Basic Stuff
 
 <div class="form-group">
 <label for="url">i use this URL Key Slug</label>
-<input type="text" class="form-control" name="i_use_this_key" id="i_use_this_key" value="<?PHP echo $i_use_this_key; ?>">
+<input type="text" class="form-control" name="i_use_this_key" id="i_use_this_key" value="<?PHP echo htmlspecialchars($i_use_this_key); ?>">
 <br>
 <div class="alert alert-info">
 <span class="info">Ex: http://osx.iusethis.com/app/<strong>virtualhostx</strong></span>
@@ -203,7 +203,7 @@ Basic Stuff
                                     <select name="upgrade_app_id" id="upgrade_app_id" class="form-control">
 										<option value="">-- None --</option>
 										<?PHP foreach($upgrade_apps as $a) : ?>
-										<option <?PHP if($upgrade_app_id == $a->id) echo 'selected="selected"'; ?> value="<?PHP echo $a->id; ?>"><?PHP echo $a->name; ?></option>
+										<option <?PHP if($upgrade_app_id == $a->id) echo 'selected="selected"'; ?> value="<?PHP echo htmlspecialchars($a->id); ?>"><?PHP echo htmlspecialchars($a->name); ?></option>
 										<?PHP endforeach; ?>
 									</select><br/>
 <div class="alert alert-info">
@@ -226,29 +226,29 @@ File Storage
 
 <div class="form-group">
 <label for="s3url">Amazon S3 URL</label>
-<input type="text" class="form-control" name="s3url" id="s3url" value="<?PHP echo $s3url; ?>">
+<input type="text" class="form-control" name="s3url" id="s3url" value="<?PHP echo htmlspecialchars($s3url); ?>">
 </div>
 
 <div class="form-group">
 <label for="s3key">Amazon S3 Key</label>
-<input type="text" class="form-control" name="s3key" id="s3key" value="<?PHP echo $s3key; ?>">
+<input type="text" class="form-control" name="s3key" id="s3key" value="<?PHP echo htmlspecialchars($s3key); ?>">
 </div>
 
 <div class="form-group">
 <label for="s3key">Amazon S3 Private Key</label>
-<input type="text" class="form-control" name="s3pkey" id="s3pkey" value="<?PHP echo $s3pkey; ?>">
+<input type="text" class="form-control" name="s3pkey" id="s3pkey" value="<?PHP echo htmlspecialchars($s3pkey); ?>">
 </div>
 
 
 <div class="form-group">
 <label for="s3key">Amazon S3 Bucket Name</label>
-<input type="text" class="form-control" name="s3bucket" id="s3bucket" value="<?PHP echo $s3bucket; ?>">
+<input type="text" class="form-control" name="s3bucket" id="s3bucket" value="<?PHP echo htmlspecialchars($s3bucket); ?>">
 </div>
 
 
 <div class="form-group">
 <label for="url">Amazon S3 Path</label>
-<input type="text" class="form-control" name="s3path" id="s3path" value="<?PHP echo $s3path; ?>">
+<input type="text" class="form-control" name="s3path" id="s3path" value="<?PHP echo htmlspecialchars($s3path); ?>">
 <br>
 <div class="alert alert-info">
 <span class="info">The directory in your bucket where you downloads will be stored</span>
@@ -270,12 +270,12 @@ Sparkle
 
 <div class="form-group">
 <label for="sparkle_key">Sparkle Public Key</label>
-<textarea name="sparkle_key" id="sparkle_key" class="form-control"><?PHP echo $sparkle_key ?></textarea>
+<textarea name="sparkle_key" id="sparkle_key" class="form-control"><?PHP echo htmlspecialchars($sparkle_key) ?></textarea>
 </div>
 
 <div class="form-group">
 <label for="sparkle_pkey">Sparkle Private Key</label>
-<textarea name="sparkle_pkey" id="sparkle_pkey" class="form-control"><?PHP echo $sparkle_pkey ?></textarea>
+<textarea name="sparkle_pkey" id="sparkle_pkey" class="form-control"><?PHP echo htmlspecialchars($sparkle_pkey) ?></textarea>
 </div>
 
 
@@ -294,26 +294,26 @@ Licensing Engine
 
 <div class="form-group">
 <label for="engine_class_name">License Engine Class Name</label><br>
-<input type="text" class="form-control" name="engine_class_name" id="engine_class_name" value="<?PHP echo $engine_class_name; ?>">
+<input type="text" class="form-control" name="engine_class_name" id="engine_class_name" value="<?PHP echo htmlspecialchars($engine_class_name); ?>">
 <br>
 <div class="alert alert-info">
-<span class="info">The PHP class name of your licensing engine. Available engines are: <?PHP echo $available_engines; ?></span>
+<span class="info">The PHP class name of your licensing engine. Available engines are: <?PHP echo htmlspecialchars($available_engines); ?></span>
 </div>
 </div>
 
 <div class="form-group">
 <label for="ap_key">Aquatic Prime Public Key</label>
-<textarea name="ap_key" id="ap_key" class="form-control"><?PHP echo $ap_key ?></textarea>
+<textarea name="ap_key" id="ap_key" class="form-control"><?PHP echo htmlspecialchars($ap_key) ?></textarea>
 </div>
 
 <div class="form-group">
 <label for="ap_pkey">Aquatic Prime Private Key</label>
-<textarea name="ap_pkey" id="ap_pkey" class="form-control"><?PHP echo $ap_pkey ?></textarea>
+<textarea name="ap_pkey" id="ap_pkey" class="form-control"><?PHP echo htmlspecialchars($ap_pkey) ?></textarea>
 </div>
 
 <div class="form-group">
 <label for="custom_salt">Custom License Salt (if not using Aquatic Prime)</label>
-<textarea name="custom_salt" id="custom_salt" class="form-control"><?PHP echo $custom_salt ?></textarea>
+<textarea name="custom_salt" id="custom_salt" class="form-control"><?PHP echo htmlspecialchars($custom_salt) ?></textarea>
 </div>
 
 </div>
@@ -330,7 +330,7 @@ PayPal
 
 <div class="form-group">
 <label for="return_url">PayPal Thanks URL</label>
-<input type="text" class="form-control" name="return_url" value="<?PHP echo $return_url; ?>" id="return_url">
+<input type="text" class="form-control" name="return_url" value="<?PHP echo htmlspecialchars($return_url); ?>" id="return_url">
 </div>
 
 </div>
@@ -346,7 +346,7 @@ FastSpring
 
 <div class="form-group">
 <label for="return_url">Item Notification Security Key</label>
-<input type="text" class="form-control" name="fs_security_key" value="<?PHP echo $fs_security_key; ?>" id="fs_security_key">
+<input type="text" class="form-control" name="fs_security_key" value="<?PHP echo htmlspecialchars($fs_security_key); ?>" id="fs_security_key">
 </div>
 
 </div>
@@ -363,17 +363,17 @@ Thank-you Email
 
 <div class="form-group">
 <label for="from_email">From Email</label>
-<input type="text" class="form-control" name="from_email" value="<?PHP echo $from_email; ?>" id="from_email">
+<input type="text" class="form-control" name="from_email" value="<?PHP echo htmlspecialchars($from_email); ?>" id="from_email">
 </div>
 
 <div class="form-group">
 <label for="email_subject">Email Subject</label>
-<input type="text" class="form-control" name="email_subject" value="<?PHP echo $email_subject; ?>" id="email_subject">
+<input type="text" class="form-control" name="email_subject" value="<?PHP echo htmlspecialchars($email_subject); ?>" id="email_subject">
 </div>
 
 <div class="form-group">
 <label for="email_body">Email Body</label>
-<textarea name="email_body" id="email_body" class="form-control"><?PHP echo $email_body ?></textarea><br>
+<textarea name="email_body" id="email_body" class="form-control"><?PHP echo htmlspecialchars($email_body) ?></textarea><br>
 <div class="alert alert-info">
 <span class="info"><strong>Available Substitutions</strong>: {first_name}, {last_name}, {payer_email}, {license}, {serial_number}, {1daylink}, {3daylink}, {1weeklink}, {foreverlink}. Add your own in includes/class.objects.php getBody().</span>
 </div>
@@ -381,7 +381,7 @@ Thank-you Email
 
 <div class="form-group">
 <label for="license_filename">License Filename</label>
-<input type="text" class="form-control" name="license_filename" value="<?PHP echo $license_filename; ?>" id="license_filename">
+<input type="text" class="form-control" name="license_filename" value="<?PHP echo htmlspecialchars($license_filename); ?>" id="license_filename">
 </div>
 
 <input type="submit" name="btnSaveApp" value="Save Application" id="btnSaveApp" class="btn btn-lg btn-success btn-block">
