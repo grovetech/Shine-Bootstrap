@@ -57,7 +57,7 @@
 <ul class="nav nav-pills">
     <li class="nav-link"><a class="nav-link" href="users.php">Users</a></li>
     <li class="nav-link"><a class="nav-link" href="user-new.php">Create new user</a></li>
-    <li class="nav-link"><a class="nav-link active" href="user-edit.php?id=<?PHP echo $u->id; ?>">Edit User</a></li>
+    <li class="nav-link"><a class="nav-link active" href="user-edit.php?id=<?PHP echo htmlspecialchars($u->id); ?>">Edit User</a></li>
 </ul>
 
 </div>
