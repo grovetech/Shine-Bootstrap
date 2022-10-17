@@ -55,9 +55,9 @@
                         </div>
                         <div class="bd">
 							<form action="tickets-milestone-new.php?app_id=<?PHP echo htmlspecialchars($app->id);?>" method="post">
-								<p><label for="title">Title</label> <input type="text" name="title" id="title" value="<?PHP echo $title;?>" class="text"></p>
-								<p><label for="description">Description</label><br><textarea name="description" id="description" class="text"><?PHP echo $description ?></textarea><span class="info">Markdown is allowed</span></p>
-								<p><label for="due">Due Date:</label> <input type="text" name="due" id="due" value="<?PHP echo $due;?>" class="text"></p>
+								<p><label for="title">Title</label> <input type="text" name="title" id="title" value="<?PHP echo htmlspecialchars($title);?>" class="text"></p>
+								<p><label for="description">Description</label><br><textarea name="description" id="description" class="text"><?PHP echo htmlspecialchars($description) ?></textarea><span class="info">Markdown is allowed</span></p>
+								<p><label for="due">Due Date:</label> <input type="text" name="due" id="due" value="<?PHP echo htmlspecialchars($due);?>" class="text"></p>
 								<p><input type="submit" name="btnNew" value="Create Milestone" id="btnNew"></p>
 							</form>
 						</div>

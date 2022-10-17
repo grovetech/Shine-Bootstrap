@@ -81,7 +81,7 @@
 										<td><?php echo htmlspecialchars($f->id); ?></td>
 										<td><?php echo htmlspecialchars($f->appname); ?> <?php echo $f->appversion; ?></td>
 										<td><?php echo htmlspecialchars($f->type); ?></td>
-										<td><a href="mailto:<?php echo htmlspecialchars($f->email); ?>"><?php echo $f->email; ?></a></td>
+										<td><a href="mailto:<?php echo htmlspecialchars($f->email); ?>"><?php echo htmlspecialchars($f->email); ?></a></td>
 										<td><?php echo ($f->reply == 1) ? '<strong>Yes</strong>' : 'No'; ?></td>
 										<td><?php echo time2str($f->dt); ?></td>
 										<td><a href="feedback-view.php?id=<?php echo htmlspecialchars($f->id); ?>" class="btn btn-sm btn-info">View</a></td>

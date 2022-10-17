@@ -73,8 +73,8 @@
 								<?PHP foreach($o->columns as $k => $v) : ?>
 								<?PHP if(strlen(trim($v)) > 0) : ?>
                                         <tr>
-										<th><strong><?PHP echo $k; ?></strong></th>
-										<td><?PHP echo $v; ?></td>
+										<th><strong><?PHP echo htmlspecialchars($k); ?></strong></th>
+										<td><?PHP echo htmlspecialchars($v); ?></td>
                                         </tr>
 								<?PHP endif; ?>
 								<?PHP endforeach; ?>

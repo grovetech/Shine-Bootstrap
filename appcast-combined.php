@@ -46,10 +46,10 @@
 		<description>Most recent changes with links to updates.</description>
 		<language>en</language>
 		<item>
-			<title><?PHP echo htmlspecialchars($app->name); ?> <?PHP echo $v->human_version; ?></title>
+			<title><?PHP echo htmlspecialchars($app->name); ?> <?PHP echo htmlspecialchars($v)->human_version; ?></title>
 			<description><![CDATA[ <?PHP echo $combined_description; ?> ]]></description>
 			<pubDate><?PHP echo dater('D, d M Y H:i:s O', $v->dt); ?></pubDate>
-			<enclosure url="<?PHP echo $v->url; ?>" sparkle:shortVersionString="<?PHP echo $v->human_version; ?>" sparkle:version="<?PHP echo $v->version_number; ?>" length="<?PHP echo $v->filesize; ?>" type="application/octet-stream" sparkle:dsaSignature="<?PHP echo $v->signature; ?>" />
+			<enclosure url="<?PHP echo htmlspecialchars($v)->url; ?>" sparkle:shortVersionString="<?PHP echo $v->human_version; ?>" sparkle:version="<?PHP echo $v->version_number; ?>" length="<?PHP echo $v->filesize; ?>" type="application/octet-stream" sparkle:dsaSignature="<?PHP echo $v->signature; ?>" />
 		</item>
 	</channel>
 </rss>

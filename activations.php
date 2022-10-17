@@ -97,10 +97,10 @@
 
                                         <tr class="<?PHP if($act->order_id == '') { echo 'fraud'; } ?>">
 										<td><?PHP echo $act->applicationName(); ?></td>
-										<td><a href="order.php?id=<?PHP echo $act->order_id; ?>"><?PHP echo $act->name; ?></a></td>
+										<td><a href="order.php?id=<?PHP echo $act->order_id; ?>"><?PHP echo htmlspecialchars($act->name); ?></a></td>
 										<td><?PHP echo dater($act->dt, 'm/d/Y g:ia') ?></td>
 										<td><?PHP echo array_shift(explode('-', $act->serial_number)); ?>...</td>
-										<td><?PHP echo $act->ip; ?></td>
+										<td><?PHP echo htmlspecialchars($act->ip); ?></td>
                                         </tr>
 <?PHP endforeach; ?>
                                     </tbody>

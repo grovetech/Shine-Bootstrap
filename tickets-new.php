@@ -63,8 +63,8 @@
                         </div>
                         <div class="bd">
 							<form action="/tickets/app/<?PHP echo htmlspecialchars($app->id);?>/new/" method="post">
-								<p><label for="title">Title</label> <input type="text" name="title" id="title" value="<?PHP echo $title;?>" class="text"></p>
-								<p><label for="description">Description</label><br><textarea name="description" id="description" class="text"><?PHP echo $description ?></textarea><span class="info">Markdown is allowed</span></p>
+								<p><label for="title">Title</label> <input type="text" name="title" id="title" value="<?PHP echo htmlspecialchars($title);?>" class="text"></p>
+								<p><label for="description">Description</label><br><textarea name="description" id="description" class="text"><?PHP echo htmlspecialchars($description) ?></textarea><span class="info">Markdown is allowed</span></p>
 								<p><label for="tags">Tags</label> <input type="text" name="tags" id="tags" value="<?PHP echo $tags;?>" class="text"></p>
 								<table class="nohover">
 									<tr>

@@ -50,8 +50,8 @@
 
 <?PHP foreach($versions as $v) : ?>
                                         <tr>
-                                           <td><a href="version-edit.php?id=<?PHP echo $v->id; ?>"><?PHP echo $v->human_version; ?></a></td>
-										<td><?PHP echo $v->version_number; ?></td>
+                                           <td><a href="version-edit.php?id=<?PHP echo htmlspecialchars($v)->id; ?>"><?PHP echo $v->human_version; ?></a></td>
+										<td><?PHP echo htmlspecialchars($v)->version_number; ?></td>
 										<td><?PHP echo dater($v->dt, 'n/d/Y g:ia'); ?></td>
 										<td><?PHP echo number_format($v->downloads); ?></td>
 										<td><?PHP echo number_format($v->updates); ?></td>

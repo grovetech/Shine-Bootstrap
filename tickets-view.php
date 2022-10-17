@@ -67,11 +67,11 @@
                         <div class="bd">
 							<div class="ticket">
 								<img src="<?PHP echo $user->avatar(); ?>">
-								<p class="float-box">#<?PHP echo $ticket->id; ?><br><span><?PHP echo $ticket->status; ?></span></p>
-								<h3><?PHP echo $ticket->title; ?></h3>
+								<p class="float-box">#<?PHP echo htmlspecialchars($ticket->id); ?><br><span><?PHP echo htmlspecialchars($ticket->status); ?></span></p>
+								<h3><?PHP echo htmlspecialchars($ticket->title); ?></h3>
 								<p class="meta">Created by <?PHP echo $user->username; ?> | <?PHP echo dater($ticket->dt_created, 'F j, Y \a\t g:ia'); ?>
 									<?PHP if($milestone->ok()) : ?>
-									 | in <a href="tickets-milestone.php?mid=<?PHP echo $milestone->id; ?>"><?PHP echo $milestone->title; ?></a>
+									 | in <a href="tickets-milestone.php?mid=<?PHP echo $milestone->id; ?>"><?PHP echo htmlspecialchars($milestone->title); ?></a>
 									<?PHP endif; ?>
 								</p>
 								<div class="markdown">
@@ -93,7 +93,7 @@
 								<?PHP endforeach; ?>
 							</div>
 								
-							<form action="/ticket/<?PHP echo $ticket->id; ?>/" method="post">
+							<form action="/ticket/<?PHP echo htmlspecialchars($ticket->id); ?>/" method="post">
 								<p><label for="comment">Add a comment</label><textarea name="comment" id="comment" class="text"></textarea><span class="info">Markdown is allowed</span></p>
 								<p><label for="tags">Tags</label> <input type="text" name="tags" id="tags" value="<?PHP echo $tags;?>" class="text"></p>
 								<table class="nohover">

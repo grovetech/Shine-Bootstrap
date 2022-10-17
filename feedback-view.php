@@ -96,7 +96,7 @@
 								</tr>
 								<tr>
 									<th>Email</th>
-									<td><a href="mailto:<?PHP echo htmlspecialchars($f->email);?>"><?PHP echo $f->email;?></a></td>
+									<td><a href="mailto:<?PHP echo htmlspecialchars($f->email);?>"><?PHP echo htmlspecialchars($f->email);?></a></td>
 								</tr>
 								<tr>
 									<th>Type</th>
@@ -281,7 +281,7 @@
     							<tr>
     							    <td><?PHP echo time2str($a->dt); ?></td>
     							    <td><?PHP echo $a->applicationName(); ?></td>
-    							    <td><a href="activations.php?q=<?PHP echo $a->ip; ?>"><?PHP echo $a->ip; ?></a></td>
+    							    <td><a href="activations.php?q=<?PHP echo htmlspecialchars($a->ip); ?>"><?PHP echo $a->ip; ?></a></td>
     							</tr>
     							<?PHP endforeach; ?>
 					        </tbody>
