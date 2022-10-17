@@ -44,13 +44,13 @@
                                 </thead>
                                 <tbody>
 									<?PHP foreach($tickets as $t): ?>
-									<tr class="ticket-<?PHP echo $t->status; ?>">
-										<td class="id"><?PHP echo $t->id; ?></td>
-										<td class="status"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/list/?status=<?PHP echo $t->status; ?>"><?PHP echo ucwords($t->status); ?></a></td>
-										<td class="title"><a href="/ticket/<?PHP echo $t->id; ?>/"><?PHP echo $t->title; ?></a></td>
-										<td class="milestone"><a href="tickets-milestone.php?id=<?PHP echo $t->milestone_id; ?>"><?PHP echo $milestones[$t->milestone_id]->title; ?></a></td>
-										<td class="assigned-to"><a href="tickets-user.php?id=<?PHP echo $t->assigned_to; ?>"><?PHP echo $users[$t->assigned_to]->username; ?></a></td>
-										<td class="age"><?PHP echo time2str($t->dt_created); ?></td>
+									<tr class="ticket-<?PHP echo htmlspecialchars($t->status); ?>">
+										<td class="id"><?PHP echo htmlspecialchars($t->id); ?></td>
+										<td class="status"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/list/?status=<?PHP echo htmlspecialchars($t->status); ?>"><?PHP echo htmlspecialchars(ucwords($t->status)); ?></a></td>
+										<td class="title"><a href="/ticket/<?PHP echo htmlspecialchars($t->id); ?>/"><?PHP echo htmlspecialchars($t->title); ?></a></td>
+										<td class="milestone"><a href="tickets-milestone.php?id=<?PHP echo htmlspecialchars($t->milestone_id); ?>"><?PHP echo htmlspecialchars($milestones[$t->milestone_id]->title); ?></a></td>
+										<td class="assigned-to"><a href="tickets-user.php?id=<?PHP echo htmlspecialchars($t->assigned_to); ?>"><?PHP echo htmlspecialchars($users[$t->assigned_to]->username); ?></a></td>
+										<td class="age"><?PHP echo htmlspecialchars(time2str($t->dt_created)); ?></td>
 									</tr>
 									<?PHP endforeach; ?>
                                 </tbody>

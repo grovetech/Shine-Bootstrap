@@ -66,11 +66,11 @@
                                     
                                     <form action="version-edit.php?id=<?PHP echo htmlspecialchars($v)->id; ?>" method="post">
 								<p><label for="version_number">Version Number</label> <input type="text" name="version_number" id="version_number" value="<?PHP echo htmlspecialchars($version_number);?>" class="form-control"></p>
-								<p><label for="human_version">Human Readable Version Number</label> <input type="text" name="human_version" id="human_version" value="<?PHP echo $human_version;?>" class="form-control"></p>
-								<p><label for="url">Download URL</label> <input type="text" name="url" id="url" value="<?PHP echo $url;?>" class="form-control"></p>
-								<p><label for="release_notes">Release Notes</label> <textarea class="form-control" name="release_notes" id="release_notes"><?PHP echo $release_notes; ?></textarea></p>
-								<p><label for="filesize">Filesize</label> <input type="text" name="filesize" id="filesize" value="<?PHP echo $filesize; ?>" class="form-control"></p>
-								<p><label for="signature">Sparkle Signature</label> <input type="text" name="signature" id="signature" value="<?PHP echo $signature; ?>" class="form-control"></p>
+								<p><label for="human_version">Human Readable Version Number</label> <input type="text" name="human_version" id="human_version" value="<?PHP echo htmlspecialchars($human_version);?>" class="form-control"></p>
+								<p><label for="url">Download URL</label> <input type="text" name="url" id="url" value="<?PHP echo htmlspecialchars($url);?>" class="form-control"></p>
+								<p><label for="release_notes">Release Notes</label> <textarea class="form-control" name="release_notes" id="release_notes"><?PHP echo htmlspecialchars($release_notes); ?></textarea></p>
+								<p><label for="filesize">Filesize</label> <input type="text" name="filesize" id="filesize" value="<?PHP echo htmlspecialchars($filesize); ?>" class="form-control"></p>
+								<p><label for="signature">Sparkle Signature</label> <input type="text" name="signature" id="signature" value="<?PHP echo htmlspecialchars($signature); ?>" class="form-control"></p>
 <br>
 								<p><input type="submit" name="btnDelete" value="Delete Version" id="btnDelete" onclick="return confirm('Are you sure?');" class="btn btn-lg btn-danger">   <input type="submit" name="btnSave" value="Save" id="btnSave" class="btn btn-lg btn-success"></p>
 							</form>

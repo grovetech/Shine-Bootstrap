@@ -59,12 +59,12 @@
 
 <?PHP foreach($users as $u) : ?>
                                         <tr>
-                                          <td><?PHP echo $u->username; ?></td>
-										<td><?PHP echo $u->level; ?></td>
-										<td><?PHP echo $u->email; ?></td>
+                                          <td><?PHP echo htmlspecialchars($u->username); ?></td>
+										<td><?PHP echo htmlspecialchars($u->level); ?></td>
+										<td><?PHP echo htmlspecialchars($u->email); ?></td>
 										<td>
-                                            <a href="user-edit.php?id=<?PHP echo $u->id; ?>" class="btn btn-default btn-success">Edit</a>
-                                            <a href="user-edit.php?id=<?PHP echo $u->id; ?>&amp;action=delete" onclick="return confirm('Are you sure?');" class="btn btn-default btn-danger">Delete</a></td>
+                                            <a href="user-edit.php?id=<?PHP echo htmlspecialchars($u->id); ?>" class="btn btn-default btn-success">Edit</a>
+                                            <a href="user-edit.php?id=<?PHP echo htmlspecialchars($u->id); ?>&amp;action=delete" onclick="return confirm('Are you sure?');" class="btn btn-default btn-danger">Delete</a></td>
                                         </tr>
 <?PHP endforeach; ?>
                                     </tbody>

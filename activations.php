@@ -96,11 +96,11 @@
 <?PHP foreach($activations as $act) : ?>
 
                                         <tr class="<?PHP if($act->order_id == '') { echo 'fraud'; } ?>">
-										<td><?PHP echo $act->applicationName(); ?></td>
-										<td><a href="order.php?id=<?PHP echo $act->order_id; ?>"><?PHP echo htmlspecialchars($act->name); ?></a></td>
-										<td><?PHP echo dater($act->dt, 'm/d/Y g:ia') ?></td>
-										<td><?PHP echo array_shift(explode('-', $act->serial_number)); ?>...</td>
-										<td><?PHP echo htmlspecialchars($act->ip); ?></td>
+										<td><?PHP echo htmlspecialchars($act->applicationName()); ?></td>
+										<td><a href="order.php?id=<?PHP echo htmlspecialchars($act->order_id); ?>"><?PHP echo htmlspecialchars($act->name); ?></a></td>
+										<td><?PHP echo htmlspecialchars(dater($act->dt, 'm/d/Y g:ia')) ?></td>
+										<td><?PHP echo htmlspecialchars(array_shift(explode('-', $act->serial_number))); ?>...</td>
+										<td><?PHP echo htmlspecialchars(htmlspecialchars($act->ip)); ?></td>
                                         </tr>
 <?PHP endforeach; ?>
                                     </tbody>
@@ -111,15 +111,15 @@
 <div class="text-center">
 <nav aria-label="Activation pagination">
     <ul class="pagination">
-                                  <li class="page-item"><a class="page-link" href="activations.php?page=<?PHP echo $pager->prevPage(); ?>&amp;id=<?PHP echo @$app_id; ?>">&#171; Prev</a></li>
+                                  <li class="page-item"><a class="page-link" href="activations.php?page=<?PHP echo htmlspecialchars($pager->prevPage()); ?>&amp;id=<?PHP echo htmlspecialchars(@$app_id); ?>">&#171; Prev</a></li>
                                     <?PHP for($i = 1; $i <= $pager->numPages; $i++) : ?>
                                     <?PHP if($i == $pager->page) : ?>
-                                    <li class="page-item active"><a class="page-link" href="activations.php?page=<?PHP echo $i; ?>&amp;id=<?PHP echo @$app_id; ?>"><?PHP echo $i; ?></a></li>
+                                    <li class="page-item active"><a class="page-link" href="activations.php?page=<?PHP echo htmlspecialchars($i); ?>&amp;id=<?PHP echo htmlspecialchars(@$app_id); ?>"><?PHP echo htmlspecialchars($i); ?></a></li>
                                     <?PHP else : ?>
-                                    <li class="page-item"><a class="page-link" href="activations.php?page=<?PHP echo $i; ?>&amp;id=<?PHP echo @$app_id; ?>"><?PHP echo $i; ?></a></li>
+                                    <li class="page-item"><a class="page-link" href="activations.php?page=<?PHP echo htmlspecialchars($i); ?>&amp;id=<?PHP echo htmlspecialchars(@$app_id); ?>"><?PHP echo htmlspecialchars($i); ?></a></li>
                                     <?PHP endif; ?>
                                     <?PHP endfor; ?>
-                                    <li class="page-item"><a class="page-link" href="activations.php?page=<?PHP echo $pager->nextPage(); ?>&amp;id=<?PHP echo @$app_id; ?>">Next &#187;</a></li>
+                                    <li class="page-item"><a class="page-link" href="activations.php?page=<?PHP echo htmlspecialchars($pager->nextPage()); ?>&amp;id=<?PHP echo htmlspecialchars(@$app_id); ?>">Next &#187;</a></li>
     </ul>
 </nav>
 </div>
