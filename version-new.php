@@ -96,9 +96,9 @@ function sign_file($filename, $keydata)
 <h1 class="page-header">Applications</h1>
 
 <ul class="nav nav-pills">
-<li class="nav-link"><a class="nav-link" href="application.php?id=<?PHP echo $app->id; ?>"><?PHP echo $app->name; ?></a></li>
-<li class="nav-link"><a class="nav-link" href="versions.php?id=<?PHP echo $app->id; ?>">Versions</a></li>
-<li class="nav-link"><a class="nav-link active"href="version-new.php?id=<?PHP echo $app->id; ?>">Release New Version</a></li>
+<li class="nav-link"><a class="nav-link" href="application.php?id=<?PHP echo htmlspecialchars($app->id); ?>"><?PHP echo $app->name; ?></a></li>
+<li class="nav-link"><a class="nav-link" href="versions.php?id=<?PHP echo htmlspecialchars($app->id); ?>">Versions</a></li>
+<li class="nav-link"><a class="nav-link active"href="version-new.php?id=<?PHP echo htmlspecialchars($app->id); ?>">Release New Version</a></li>
 </ul>
 
 </div>
@@ -119,7 +119,7 @@ function sign_file($filename, $keydata)
 
                                 <div class="col-lg-12">
 
-							<form action="version-new.php?id=<?PHP echo $app->id; ?>" method="post" enctype="multipart/form-data">
+							<form action="version-new.php?id=<?PHP echo htmlspecialchars($app->id); ?>" method="post" enctype="multipart/form-data">
 								<p><label for="version_number">Sparkle Version Number</label> <input type="text" name="version_number" id="version_number" value="<?PHP echo $version_number;?>" class="form-control"></p>
 								<p><label for="human_version">Human Readable Version Number</label> <input type="text" name="human_version" id="human_version" value="<?PHP echo $human_version;?>" class="form-control"></p>
 								<p><label for="release_notes">Release Notes</label> <textarea class="form-control" name="release_notes" id="release_notes"><?PHP echo $release_notes; ?></textarea></p

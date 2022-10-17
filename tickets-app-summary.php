@@ -16,9 +16,9 @@
                         <div class="hd">
                             <h2><?PHP echo $a->name; ?> Ticket Summary</h2>
 							<ul>
-								<li class="active"><a href="tickets-app-summary.php?id=<?PHP echo $app->id; ?>"><?PHP echo $app->name; ?> Summary</a></li>
-								<li><a href="tickets-tickets.php?app_id=<?PHP echo $app->id; ?>">Tickets</a></li>
-								<li><a href="tickets-milestones.php?app_id=<?PHP echo $app->id; ?>">Milestones</a></li>
+								<li class="active"><a href="tickets-app-summary.php?id=<?PHP echo htmlspecialchars($app->id); ?>"><?PHP echo $app->name; ?> Summary</a></li>
+								<li><a href="tickets-tickets.php?app_id=<?PHP echo htmlspecialchars($app->id); ?>">Tickets</a></li>
+								<li><a href="tickets-milestones.php?app_id=<?PHP echo htmlspecialchars($app->id); ?>">Milestones</a></li>
 							</ul>
 							<div class="clear"></div>
                         </div>
@@ -33,8 +33,8 @@
 				<div class="block">
 					<div class="hd"><h3>Create a New Item</h3></div>
 					<div class="bd">
-						<p class="text-center"><a href="tickets-new.php?app_id=<?PHP echo $app->id; ?>" class="big-button">New Ticket</a></p>
-						<p class="text-center"><a href="tickets-milestone-new.php?app_id=<?PHP echo $app->id; ?>" class="big-button">New Milestone</a></p>
+						<p class="text-center"><a href="tickets-new.php?app_id=<?PHP echo htmlspecialchars($app->id); ?>" class="big-button">New Ticket</a></p>
+						<p class="text-center"><a href="tickets-milestone-new.php?app_id=<?PHP echo htmlspecialchars($app->id); ?>" class="big-button">New Milestone</a></p>
 					</div>
 				</div>
             </div>

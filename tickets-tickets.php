@@ -24,9 +24,9 @@
                         <div class="hd">
                             <h2><?PHP echo $a->name; ?> Ticket Summary</h2>
 							<ul>
-								<li><a href="/tickets/app/<?PHP echo $app->id; ?>/"><?PHP echo $app->name; ?> Summary</a></li>
-								<li class="active"><a href="/tickets/app/<?PHP echo $app->id; ?>/list/">Tickets</a></li>
-								<li><a href="/milestones/app/<?PHP echo $app->id; ?>/">Milestones</a></li>
+								<li><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/"><?PHP echo $app->name; ?> Summary</a></li>
+								<li class="active"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/list/">Tickets</a></li>
+								<li><a href="/milestones/app/<?PHP echo htmlspecialchars($app->id); ?>/">Milestones</a></li>
 							</ul>
 							<div class="clear"></div>
                         </div>
@@ -46,7 +46,7 @@
 									<?PHP foreach($tickets as $t): ?>
 									<tr class="ticket-<?PHP echo $t->status; ?>">
 										<td class="id"><?PHP echo $t->id; ?></td>
-										<td class="status"><a href="/tickets/app/<?PHP echo $app->id; ?>/list/?status=<?PHP echo $t->status; ?>"><?PHP echo ucwords($t->status); ?></a></td>
+										<td class="status"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/list/?status=<?PHP echo $t->status; ?>"><?PHP echo ucwords($t->status); ?></a></td>
 										<td class="title"><a href="/ticket/<?PHP echo $t->id; ?>/"><?PHP echo $t->title; ?></a></td>
 										<td class="milestone"><a href="tickets-milestone.php?id=<?PHP echo $t->milestone_id; ?>"><?PHP echo $milestones[$t->milestone_id]->title; ?></a></td>
 										<td class="assigned-to"><a href="tickets-user.php?id=<?PHP echo $t->assigned_to; ?>"><?PHP echo $users[$t->assigned_to]->username; ?></a></td>
@@ -64,8 +64,8 @@
 				<div class="block">
 					<div class="hd"><h3>Create a New Item</h3></div>
 					<div class="bd">
-						<p class="text-center"><a href="/tickets/app/<?PHP echo $app->id; ?>/new/" class="big-button">New Ticket</a></p>
-						<p class="text-center"><a href="/milestones/app/<?PHP echo $app->id; ?>/new/" class="big-button">New Milestone</a></p>
+						<p class="text-center"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/new/" class="big-button">New Ticket</a></p>
+						<p class="text-center"><a href="/milestones/app/<?PHP echo htmlspecialchars($app->id); ?>/new/" class="big-button">New Milestone</a></p>
 					</div>
 				</div>
             </div>

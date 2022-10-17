@@ -15,9 +15,9 @@
  <h1 class="page-header">Applications</h1>
 
 <ul class="nav nav-pills">
-<li class="nav-link"><a class="nav-link" href="application.php?id=<?PHP echo $app->id; ?>"><?PHP echo $app->name; ?></a></li>
-<li class="nav-link"><a class="nav-link active" href="versions.php?id=<?PHP echo $app->id; ?>">Versions</a></li>
-<li class="nav-link"><a class="nav-link" href="version-new.php?id=<?PHP echo $app->id; ?>">Release New Version</a></li>
+<li class="nav-link"><a class="nav-link" href="application.php?id=<?PHP echo htmlspecialchars($app->id); ?>"><?PHP echo $app->name; ?></a></li>
+<li class="nav-link"><a class="nav-link active" href="versions.php?id=<?PHP echo htmlspecialchars($app->id); ?>">Versions</a></li>
+<li class="nav-link"><a class="nav-link" href="version-new.php?id=<?PHP echo htmlspecialchars($app->id); ?>">Release New Version</a></li>
 </ul>
 
 </div>
