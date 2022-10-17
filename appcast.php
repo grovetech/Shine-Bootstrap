@@ -35,7 +35,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title><?PHP echo htmlspecialchars($app->name); ?> Changelog</title>
-		<link><?PHP echo $app->link; ?></link>
+		<link><?PHP echo htmlspecialchars($app->link); ?></link>
 		<description>Most recent changes with links to updates.</description>
 		<language>en</language>
 		<?PHP foreach($versions as $v) : ?>

@@ -2,4 +2,4 @@
 	require 'includes/master.inc.php';
 	$Auth->requireAdmin('login.php');
 
-	echo rapportive($_GET['email']);
+	echo htmlspecialchars(rapportive($_GET['email']));

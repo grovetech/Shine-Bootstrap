@@ -112,7 +112,7 @@
                                         <td>
                                             <strong><a href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>"><?PHP echo htmlspecialchars($t->username); ?></a></strong>
                                             <br>
-                                            <a style="font-size:80%;" href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>/status/<?PHP echo htmlspecialchars($t->tweet_id; ?>"><?PHP echo time2str($t->dt); ?></a>
+                                            <a style="font-size:80%;" href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>/status/<?PHP echo htmlspecialchars($t->tweet_id); ?>"><?PHP echo htmlspecialchars(time2str($t->dt)); ?></a>
                                         </td>
                                         <td>
                                             <?PHP echo htmlspecialchars(twitterfy($t->body)); ?><br>

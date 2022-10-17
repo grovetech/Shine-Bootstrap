@@ -37,7 +37,7 @@
 									<?PHP foreach($milestones as $m): ?>
 									<tr>
 										<td><a href="tickets-milestone.php?id=<?PHP echo htmlspecialchars($m->id); ?>"><?PHP echo htmlspecialchars($m->title); ?></a></td>
-										<td><?PHP echo dater($m->dt_due, 'F j'); ?></td>
+										<td><?PHP echo htmlspecialchars(dater($m->dt_due, 'F j')); ?></td>
 										<td><span class="pbar"><span class="inner" style="width:<?PHP echo htmlspecialchars($m->percent()); ?>%;"></span><span class="percent"><?PHP echo htmlspecialchars($m->percent()); ?>%</span></span></td>
 									</tr>
 									<?PHP endforeach; ?>

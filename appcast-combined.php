@@ -48,7 +48,7 @@
 		<item>
 			<title><?PHP echo htmlspecialchars($app->name)); ?> <?PHP echo htmlspecialchars($v->human_version); ?></title>
 			<description><![CDATA[ <?PHP echo htmlspecialchars($combined_description); ?> ]]></description>
-			<pubDate><?PHP echo dater('D, d M Y H:i:s O', $v->dt); ?></pubDate>
+			<pubDate><?PHP echo htmlspecialchars(dater('D, d M Y H:i:s O', $v->dt)); ?></pubDate>
 			<enclosure url="<?PHP echo htmlspecialchars($v->url); ?>" sparkle:shortVersionString="<?PHP echo htmlspecialchars($v->human_version); ?>" sparkle:version="<?PHP echo htmlspecialchars($v->version_number); ?>" length="<?PHP echo htmlspecialchars($v->filesize); ?>" type="application/octet-stream" sparkle:dsaSignature="<?PHP echo htmlspecialchars($v->signature); ?>" />
 		</item>
 	</channel>
