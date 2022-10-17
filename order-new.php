@@ -65,10 +65,10 @@
                                 <div class="col-lg-12">
                                     
                                     <form action="order-new.php" method="post">
-								<p><label for="app_id">Application</label> <select name="app_id" id="app_id" class="form-control"><?PHP foreach($applications as $a) : ?><option value="<?PHP echo $a->id; ?>"><?PHP echo $a->name; ?></option><?PHP endforeach; ?></select></p>
-								<p><label for="first_name">First Name</label> <input type="text" name="first_name" id="first_name" value="<?PHP echo $first_name; ?>" class="form-control"></p>
-								<p><label for="last_name">Last Name</label> <input type="text" name="last_name" id="last_name" value="<?PHP echo $last_name; ?>" class="form-control"></p>
-								<p><label for="email">Email</label> <input type="text" name="email" id="email" value="<?PHP echo $email; ?>" class="form-control"></p>
+								<p><label for="app_id">Application</label> <select name="app_id" id="app_id" class="form-control"><?PHP foreach($applications as $a) : ?><option value="<?PHP echo htmlspecialchars($a->id); ?>"><?PHP echo htmlspecialchars($a->name); ?></option><?PHP endforeach; ?></select></p>
+								<p><label for="first_name">First Name</label> <input type="text" name="first_name" id="first_name" value="<?PHP echo htmlspecialchars($first_name); ?>" class="form-control"></p>
+								<p><label for="last_name">Last Name</label> <input type="text" name="last_name" id="last_name" value="<?PHP echo htmlspecialchars($last_name); ?>" class="form-control"></p>
+								<p><label for="email">Email</label> <input type="text" name="email" id="email" value="<?PHP echo htmlspecialchars($email); ?>" class="form-control"></p>
 								<p><label for="notes">Notes</label> <textarea name="notes" id="notes" class="form-control"></textarea></p>
 								<br><p><input type="submit" name="btnCreateOrder" value="Create Order" id="btnCreateOrder" class="btn btn-lg btn-success btn-block"></p>
 							</form>

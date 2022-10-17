@@ -75,9 +75,9 @@
         <?PHP foreach($applications as $a): ?>
             <?PHP if(in_array($a->id, $available_apps)): ?>
                 <?php if(@$_GET['id'] == $a->id): ?>
-                    <li class="nav-link"><a class="nav-link active" href="tweets.php?id=<?PHP echo $a->id; ?>"><?PHP echo $a->name; ?></a></li>
+                    <li class="nav-link"><a class="nav-link active" href="tweets.php?id=<?PHP echo htmlspecialchars($a->id); ?>"><?PHP echo htmlspecialchars($a->name); ?></a></li>
                 <?php else: ?>
-                    <li class="nav-link"><a class="nav-link" href="tweets.php?id=<?PHP echo $a->id; ?>"><?PHP echo $a->name; ?></a></li>
+                    <li class="nav-link"><a class="nav-link" href="tweets.php?id=<?PHP echo htmlspecialchars($a->id); ?>"><?PHP echo htmlspecialchars($a->name); ?></a></li>
                 <?php endif; ?>
             <?php endif; ?>
         <?PHP endforeach; ?>
@@ -110,9 +110,9 @@
                                     <?PHP endif; ?>
                                         <td><img src="<?PHP echo htmlspecialchars($t->profile_img); ?>" style="width:48px;height:48px;"></td>
                                         <td>
-                                            <strong><a href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>"><?PHP echo $t->username; ?></a></strong>
+                                            <strong><a href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>"><?PHP echo htmlspecialchars($t->username); ?></a></strong>
                                             <br>
-                                            <a style="font-size:80%;" href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>/status/<?PHP echo $t->tweet_id; ?>"><?PHP echo time2str($t->dt); ?></a>
+                                            <a style="font-size:80%;" href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>/status/<?PHP echo htmlspecialchars($t->tweet_id; ?>"><?PHP echo time2str($t->dt); ?></a>
                                         </td>
                                         <td>
                                             <?PHP echo htmlspecialchars(twitterfy($t->body)); ?><br>
@@ -147,8 +147,8 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <p><?PHP echo count($tweets); ?> tweets</p>
-                        <p><a href="tweets.php?id=<?PHP echo $app_id; ?>&amp;read=1">Mark all as read</a></p>
-                        <p><a href="tweets.php?id=<?PHP echo $app_id; ?>&amp;refresh=1">Refresh All</a></p>
+                        <p><a href="tweets.php?id=<?PHP echo htmlspecialchars($app_id); ?>&amp;read=1">Mark all as read</a></p>
+                        <p><a href="tweets.php?id=<?PHP echo htmlspecialchars($app_id); ?>&amp;refresh=1">Refresh All</a></p>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -165,7 +165,7 @@
                          <ul class="biglist">
 							<?PHP foreach($tweet_terms as $tt) : ?>
 							<?PHP foreach(explode(',', $tt) as $term) : ?>
-							<li><a href="http://search.twitter.com/search?q=<?PHP echo urlencode($term); ?>"><?PHP echo $term; ?></a></li>
+							<li><a href="http://search.twitter.com/search?q=<?PHP echo urlencode($term); ?>"><?PHP echo htmlspecialchars($term); ?></a></li>
 							<?PHP endforeach; ?>
 							<?PHP endforeach; ?>
 						</ul>

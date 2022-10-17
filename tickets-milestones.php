@@ -16,7 +16,7 @@
 
                     <div class="block tabs spaces">
                         <div class="hd">
-                            <h2><?PHP echo $a->name; ?> Ticket Summary</h2>
+                            <h2><?PHP echo htmlspecialchars($a->name); ?> Ticket Summary</h2>
 							<ul>
 								<li><a href="tickets-app-summary.php?id=<?PHP echo htmlspecialchars($app->id); ?>"><?PHP echo htmlspecialchars($app->name); ?> Summary</a></li>
 								<li><a href="tickets-tickets.php?app_id=<?PHP echo htmlspecialchars($app->id); ?>">Tickets</a></li>
@@ -36,9 +36,9 @@
                                 <tbody>
 									<?PHP foreach($milestones as $m): ?>
 									<tr>
-										<td><a href="tickets-milestone.php?id=<?PHP echo $m->id; ?>"><?PHP echo $m->title; ?></a></td>
+										<td><a href="tickets-milestone.php?id=<?PHP echo htmlspecialchars($m->id); ?>"><?PHP echo htmlspecialchars($m->title); ?></a></td>
 										<td><?PHP echo dater($m->dt_due, 'F j'); ?></td>
-										<td><span class="pbar"><span class="inner" style="width:<?PHP echo $m->percent(); ?>%;"></span><span class="percent"><?PHP echo $m->percent(); ?>%</span></span></td>
+										<td><span class="pbar"><span class="inner" style="width:<?PHP echo htmlspecialchars($m->percent()); ?>%;"></span><span class="percent"><?PHP echo htmlspecialchars($m->percent()); ?>%</span></span></td>
 									</tr>
 									<?PHP endforeach; ?>
                                 </tbody>

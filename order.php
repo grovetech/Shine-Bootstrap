@@ -146,7 +146,7 @@
 					        <tbody>
     							<?PHP foreach($orders as $o2) : ?>
     							<tr>
-    							    <td><a href="order.php?id=<?PHP echo $o2->id; ?>"><?PHP echo htmlspecialchars(time2str($o2->dt)); ?></a></td>
+    							    <td><a href="order.php?id=<?PHP echo htmlspecialchars($o2->id); ?>"><?PHP echo htmlspecialchars(time2str($o2->dt)); ?></a></td>
     							    <td><?PHP echo htmlspecialchars($o2->applicationName()); ?></td>
     							</tr>
     							<?PHP endforeach; ?>
@@ -219,9 +219,9 @@
                             <?PHP if($app->engine_class_name == 'aquaticprime') : ?>
 						<textarea style="width:100%;" class="form-control"><?PHP echo htmlspecialchars($o->license); ?></textarea>
 						<?PHP elseif($app->engine_class_name == 'dual') : ?>
-						<textarea style="width:100%;" class="form-control"><?PHP echo "Email: {htmlspecialchars($o->payer_email)}\nSerial Number: {htmlspecialchars($o->serial_number)}"; ?></textarea>
+						<textarea style="width:100%;" class="form-control"><?PHP echo htmlspecialchars("Email: {htmlspecialchars($o->payer_email)}\nSerial Number: {htmlspecialchars($o->serial_number)}"); ?></textarea>
 						<?PHP else : ?>
-						<textarea style="width:100%;" class="form-control"><?PHP echo "Email: {htmlspecialchars($o->payer_email)}\nReg Key: {htmlspecialchars($o->license)}"; ?></textarea>
+						<textarea style="width:100%;" class="form-control"><?PHP echo htmlspecialchars("Email: {htmlspecialchars($o->payer_email)}\nReg Key: {htmlspecialchars($o->license)}"); ?></textarea>
 						<?PHP endif; ?>
                         </div>
                         <!-- /.panel-body -->

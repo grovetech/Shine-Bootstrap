@@ -65,9 +65,9 @@
                                 <div class="col-lg-12">
                                     
                                    <form action="user-new.php" method="post">
-								<p><label for="username">Username</label> <input type="text" name="username" id="username" value="<?PHP echo $username; ?>" class="form-control"></p>
+								<p><label for="username">Username</label> <input type="text" name="username" id="username" value="<?PHP echo htmlspecialchars($username); ?>" class="form-control"></p>
 								<p><label for="password">Password</label> <input type="password" name="password" id="password" value="" class="form-control"></p>
-								<p><label for="email">Email</label> <input type="text" name="email" id="email" value="<?PHP echo $email; ?>" class="form-control"></p>
+								<p><label for="email">Email</label> <input type="text" name="email" id="email" value="<?PHP echo htmlspecialchars($email); ?>" class="form-control"></p>
 								<p><label for="level">Level</label>
 								    <select name="level" id="level" class="form-control">
                                         <option <?PHP if($level == 'user') echo 'selected="selected"'; ?> value="user">User</option>
