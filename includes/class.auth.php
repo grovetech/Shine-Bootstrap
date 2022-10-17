@@ -69,7 +69,7 @@
 
             $_SESSION['un'] = '';
             $_SESSION['pw'] = '';
-            setcookie('spf', '.', time() - 3600, '/', $Config->authDomain);
+            setcookie('spf', '.', time() - 3600, '/', $Config->authDomain, httponly:true);
         }
 
         // Assumes you have already checked for duplicate usernames
@@ -246,7 +246,7 @@
             $_SESSION['un'] = $un;
             $_SESSION['pw'] = $pw;
             $s = json_encode(array('un' => $un, 'pw' => $pw));
-            return setcookie('spf', $s, time()+60*60*24*30, '/', $Config->authDomain);
+            return setcookie('spf', $s, time()+60*60*24*30, '/', $Config->authDomain, httponly:true);
         }
 
         public function createHashedPassword($pw)

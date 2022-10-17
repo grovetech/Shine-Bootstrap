@@ -190,11 +190,10 @@
         private function notify()
         {
             $err_msg = mysqli_error($this->db);
-            error_log($err_msg);
+            
 
             if($this->dieOnError === true)
             {
-                echo "<p style='border:5px solid red;background-color:#fff;padding:5px;'><strong>Database Error:</strong><br/>$err_msg</p>";
                 echo "<p style='border:5px solid red;background-color:#fff;padding:5px;'><strong>Last Query:</strong><br/>" . $this->lastQuery() . "</p>";
                 echo "<pre>";
                 debug_print_backtrace();
