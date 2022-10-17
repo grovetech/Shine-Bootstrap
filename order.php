@@ -135,7 +135,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
-                            <p><a href="activations.php?q=<?PHP echo htmlspecialchars($o->payer_email); ?>">Activated <?PHP echo $o->activationCount(); ?> times</a></p>
+                            <p><a href="activations.php?q=<?PHP echo htmlspecialchars($o->payer_email); ?>">Activated <?PHP echo htmlspecialchars($o->activationCount()); ?> times</a></p>
 					    <table class="table table-striped">
 					        <thead>
 					            <tr>
@@ -146,8 +146,8 @@
 					        <tbody>
     							<?PHP foreach($orders as $o2) : ?>
     							<tr>
-    							    <td><a href="order.php?id=<?PHP echo $o2->id; ?>"><?PHP echo time2str($o2->dt); ?></a></td>
-    							    <td><?PHP echo $o2->applicationName(); ?></td>
+    							    <td><a href="order.php?id=<?PHP echo $o2->id; ?>"><?PHP echo htmlspecialchars(time2str($o2->dt)); ?></a></td>
+    							    <td><?PHP echo htmlspecialchars($o2->applicationName()); ?></td>
     							</tr>
     							<?PHP endforeach; ?>
 					        </tbody>
@@ -171,10 +171,10 @@
                         <div class="card-body">
                             <ul class="biglist">
 							<li><a class="btn btn-secondary btn-block" href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>&amp;act=email" id="email">Email to User</a></li><br>
-							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(); ?>">Download Link (does not expire)</a></li><br>
-							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(86400); ?>">Download Link (1 day)</a></li><br>
-							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(86400 * 3); ?>">Download Link (3 days)</a></li><br>
-							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(86400 * 7); ?>">Download Link (1 week)</a></li><br>
+							<li><a class="btn btn-secondary btn-block" href="<?PHP echo htmlspecialchars($o->getDownloadLink()); ?>">Download Link (does not expire)</a></li><br>
+							<li><a class="btn btn-secondary btn-block" href="<?PHP echo htmlspecialchars($o->getDownloadLink(86400)); ?>">Download Link (1 day)</a></li><br>
+							<li><a class="btn btn-secondary btn-block" href="<?PHP echo htmlspecialchars($o->getDownloadLink(86400 * 3)); ?>">Download Link (3 days)</a></li><br>
+							<li><a class="btn btn-secondary btn-block" href="<?PHP echo htmlspecialchars($o->getDownloadLink(86400 * 7)); ?>">Download Link (1 week)</a></li><br>
 							<li><a class="btn btn-secondary btn-block" href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>&amp;act=deactivate" id="deactivate">Deactivate License</a></li>
 						</ul>
                         </div>
@@ -217,11 +217,11 @@
                         <!-- /.panel-heading -->
                         <div class="card-body">
                             <?PHP if($app->engine_class_name == 'aquaticprime') : ?>
-						<textarea style="width:100%;" class="form-control"><?PHP echo $o->license; ?></textarea>
+						<textarea style="width:100%;" class="form-control"><?PHP echo htmlspecialchars($o->license); ?></textarea>
 						<?PHP elseif($app->engine_class_name == 'dual') : ?>
-						<textarea style="width:100%;" class="form-control"><?PHP echo "Email: {$o->payer_email}\nSerial Number: {$o->serial_number}"; ?></textarea>
+						<textarea style="width:100%;" class="form-control"><?PHP echo "Email: {htmlspecialchars($o->payer_email)}\nSerial Number: {htmlspecialchars($o->serial_number)}"; ?></textarea>
 						<?PHP else : ?>
-						<textarea style="width:100%;" class="form-control"><?PHP echo "Email: {$o->payer_email}\nReg Key: {$o->license}"; ?></textarea>
+						<textarea style="width:100%;" class="form-control"><?PHP echo "Email: {htmlspecialchars($o->payer_email)}\nReg Key: {htmlspecialchars($o->license)}"; ?></textarea>
 						<?PHP endif; ?>
                         </div>
                         <!-- /.panel-body -->
