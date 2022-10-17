@@ -80,7 +80,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            Feedback #<?PHP echo $f->id; ?>
+                            Feedback #<?PHP echo htmlspecialchars($f->id); ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
@@ -88,15 +88,15 @@
                                 <table class="table table-striped">
                                     <tr>
 									<th>App Name</th>
-									<td><?PHP echo $f->appname . ' ' . $f->appversion;?></td>
+									<td><?PHP echo htmlspecialchars($f->appname) . ' ' . $f->appversion;?></td>
 								</tr>
 								<tr>
 									<th>System</th>
-									<td><?PHP echo $f->systemversion;?></td>
+									<td><?PHP echo htmlspecialchars($f->systemversion);?></td>
 								</tr>
 								<tr>
 									<th>Email</th>
-									<td><a href="mailto:<?PHP echo $f->email;?>"><?PHP echo $f->email;?></a></td>
+									<td><a href="mailto:<?PHP echo htmlspecialchars($f->email);?>"><?PHP echo $f->email;?></a></td>
 								</tr>
 								<tr>
 									<th>Type</th>
@@ -109,7 +109,7 @@
 								<?PHP if($f->type == "feature") : ?>
 								<tr>
 									<th>Importance</th>
-									<td><?PHP echo $f->importance;?></td>
+									<td><?PHP echo htmlspecialchars($f->importance);?></td>
 								</tr>
 								<?PHP endif; ?>
 								<?PHP if($f->type == "bug") : ?>
@@ -124,12 +124,12 @@
 								</tr>
 								<tr>
 									<th>IP</th>
-									<td><?PHP echo $f->ip;?></td>
+									<td><?PHP echo htmlspecialchars($f->ip);?></td>
 								</tr>
                                 </table>
 
 
-							<form action="feedback-view.php?id=<?PHP echo $f->id;?>" method="post">
+							<form action="feedback-view.php?id=<?PHP echo htmlspecialchars($f->id);?>" method="post">
 								<p>
 									<input type="submit" name="btnNew" value="Mark as New" id="btnnew"/ class="btn btn-lg btn-info">
 									<input type="submit" name="btnDelete" value="Delete" id="btndelete" onclick="return confirm('Are you sure?');"/ class="btn btn-lg btn-danger">
@@ -155,8 +155,8 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
-                            <form action="feedback-view.php?id=<?PHP echo $f->id; ?>" method="post" class="bd">
-								<textarea style="width:100%;" name="notes" id="notes" class="form-control"><?PHP echo $f->notes; ?></textarea><br>
+                            <form action="feedback-view.php?id=<?PHP echo htmlspecialchars($f->id); ?>" method="post" class="bd">
+								<textarea style="width:100%;" name="notes" id="notes" class="form-control"><?PHP echo htmlspecialchars($f->notes); ?></textarea><br>
 								<input type="submit" name="btnNotes" value="Save Notes" id="btnNotes" class="btn btn-lg btn-success"><br><br>
 								<div class="alert alert-info"><span class="info">Notes will NOT be sent or made visible to customers.</span></div>
 							</form>
@@ -207,8 +207,8 @@
      							<?PHP foreach($feedbacks as $f) : ?>
      							<tr>
      							    <td><?PHP echo time2str($f->dt); ?></td>
-     							    <td><?PHP echo $f->appname . ' ' . $f->appversion;?></td>
-     							    <td><a href="feedback-view.php?id=<?PHP echo $f->id; ?>"><?PHP echo ucwords($f->type); ?></a></td>
+     							    <td><?PHP echo htmlspecialchars($f->appname) . ' ' . $f->appversion;?></td>
+     							    <td><a href="feedback-view.php?id=<?PHP echo htmlspecialchars($f->id); ?>"><?PHP echo ucwords($f->type); ?></a></td>
      							</tr>
      							<?PHP endforeach; ?>
  					        </tbody>
@@ -300,6 +300,6 @@
 <?PHP include('inc/footer.inc.php'); ?>
 <script type="text/javascript" charset="utf-8">
 	$(function() {
-		$('#rapportive').load('rapportive.php?email=<?PHP echo $f->email; ?>');
+		$('#rapportive').load('rapportive.php?email=<?PHP echo htmlspecialchars($f->email); ?>');
 	});
 </script>
