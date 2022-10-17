@@ -42,7 +42,7 @@
 <h1 class="page-header">Applications</h1>
 
 <ul class="nav nav-pills">
-<li class="nav-link"><a href="application.php?id=<?PHP echo htmlspecialchars($app->id); ?>" class="nav-link"><?PHP echo $app->name; ?></a></li>
+<li class="nav-link"><a href="application.php?id=<?PHP echo htmlspecialchars($app->id); ?>" class="nav-link"><?PHP echo htmlspecialchars($app->name); ?></a></li>
 <li class="nav-link"><a href="versions.php?id=<?PHP echo htmlspecialchars($app->id); ?>" class="nav-link active">Versions</a></li>
 <li class="nav-link"><a href="version-new.php?id=<?PHP echo htmlspecialchars($app->id); ?>" class="nav-link">Release New Version</a></li>
 </ul>

@@ -56,9 +56,9 @@
 
                     <div class="block tabs spaces">
                         <div class="hd">
-                            <h2><?PHP echo $app->name; ?> Ticket Summary</h2>
+                            <h2><?PHP echo htmlspecialchars($app->name); ?> Ticket Summary</h2>
 							<ul>
-								<li><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/"><?PHP echo $app->name; ?> Summary</a></li>
+								<li><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/"><?PHP echo htmlspecialchars($app->name); ?> Summary</a></li>
 								<li class="active"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/list/">Tickets</a></li>
 								<li><a href="/milestones/app/<?PHP echo htmlspecialchars($app->id); ?>/">Milestones</a></li>
 							</ul>

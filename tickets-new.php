@@ -55,7 +55,7 @@
                         <div class="hd">
                             <h2><?PHP echo $a->name; ?> Ticket Summary</h2>
 							<ul>
-								<li><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/"><?PHP echo $app->name; ?> Summary</a></li>
+								<li><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/"><?PHP echo htmlspecialchars($app->name); ?> Summary</a></li>
 								<li class="active"><a href="/tickets/app/<?PHP echo htmlspecialchars($app->id); ?>/list/">Tickets</a></li>
 								<li><a href="/milestones/app/?app_id=<?PHP echo htmlspecialchars($app->id); ?>/">Milestones</a></li>
 							</ul>
