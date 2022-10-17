@@ -88,7 +88,7 @@
                                 <table class="table table-striped">
                                     <tr>
 									<th>App Name</th>
-									<td><?PHP echo htmlspecialchars($f->appname) . ' ' . $f->appversion;?></td>
+									<td><?PHP echo htmlspecialchars($f->appname . ' ' . $f->appversion);?></td>
 								</tr>
 								<tr>
 									<th>System</th>
@@ -100,11 +100,11 @@
 								</tr>
 								<tr>
 									<th>Type</th>
-									<td><?PHP echo ucwords($f->type);?></td>
+									<td><?PHP echo htmlspecialchars(ucwords($f->type));?></td>
 								</tr>
 								<tr>
 									<th>Message</th>
-									<td><?PHP echo nl2br($f->__message);?></td>
+									<td><?PHP echo htmlspecialchars(nl2br($f->__message));?></td>
 								</tr>
 								<?PHP if($f->type == "feature") : ?>
 								<tr>
@@ -120,7 +120,7 @@
 								<?PHP endif; ?>
 								<tr>
 									<th>Date Submitted</th>
-									<td><?PHP echo dater('n/j/Y g:ia', $f->dt); ?></td>
+									<td><?PHP echo htmlspecialchars(dater('n/j/Y g:ia', $f->dt)); ?></td>
 								</tr>
 								<tr>
 									<th>IP</th>
@@ -206,9 +206,9 @@
  					        <tbody>
      							<?PHP foreach($feedbacks as $f) : ?>
      							<tr>
-     							    <td><?PHP echo time2str($f->dt); ?></td>
-     							    <td><?PHP echo htmlspecialchars($f->appname) . ' ' . $f->appversion;?></td>
-     							    <td><a href="feedback-view.php?id=<?PHP echo htmlspecialchars($f->id); ?>"><?PHP echo ucwords($f->type); ?></a></td>
+     							    <td><?PHP echo htmlspecialchars(time2str($f->dt)); ?></td>
+     							    <td><?PHP echo htmlspecialchars($f->appname . ' ' . $f->appversion);?></td>
+     							    <td><a href="feedback-view.php?id=<?PHP echo htmlspecialchars($f->id); ?>"><?PHP echo htmlspecialchars(ucwords($f->type)); ?></a></td>
      							</tr>
      							<?PHP endforeach; ?>
  					        </tbody>
@@ -243,7 +243,7 @@
 					        <tbody>
     							<?PHP foreach($orders as $o) : ?>
     							<tr>
-    							    <td><?PHP echo time2str($o->dt); ?></td>
+    							    <td><?PHP echo htmlspecialchars(time2str($o->dt)); ?></td>
     							    <td><a href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>"><?PHP echo utf8_encode($o->first_name); ?> <?PHP echo utf8_encode($o->last_name); ?></a></td>
     							    <td><?PHP echo htmlspecialchars($o->applicationName()); ?></td>
     							</tr>
@@ -279,7 +279,7 @@
 					        <tbody>
     							<?PHP foreach($activations as $a) : ?>
     							<tr>
-    							    <td><?PHP echo time2str($a->dt); ?></td>
+    							    <td><?PHP echo htmlspecialchars(time2str($a->dt)); ?></td>
     							    <td><?PHP echo htmlspecialchars($a->applicationName()); ?></td>
     							    <td><a href="activations.php?q=<?PHP echo htmlspecialchars($a->ip); ?>"><?PHP echo htmlspecialchars($a->ip); ?></a></td>
     							</tr>
