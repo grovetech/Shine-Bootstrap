@@ -66,7 +66,7 @@
 </ul>
 
 
-<?PHP echo $Error; ?>
+<?PHP echo htmlspecialchars($Error); ?>
 
 
 </div>
@@ -245,7 +245,7 @@
     							<tr>
     							    <td><?PHP echo time2str($o->dt); ?></td>
     							    <td><a href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>"><?PHP echo utf8_encode($o->first_name); ?> <?PHP echo utf8_encode($o->last_name); ?></a></td>
-    							    <td><?PHP echo $o->applicationName(); ?></td>
+    							    <td><?PHP echo htmlspecialchars($o->applicationName()); ?></td>
     							</tr>
     							<?PHP endforeach; ?>
 					        </tbody>
@@ -280,8 +280,8 @@
     							<?PHP foreach($activations as $a) : ?>
     							<tr>
     							    <td><?PHP echo time2str($a->dt); ?></td>
-    							    <td><?PHP echo $a->applicationName(); ?></td>
-    							    <td><a href="activations.php?q=<?PHP echo htmlspecialchars($a->ip); ?>"><?PHP echo $a->ip; ?></a></td>
+    							    <td><?PHP echo htmlspecialchars($a->applicationName()); ?></td>
+    							    <td><a href="activations.php?q=<?PHP echo htmlspecialchars($a->ip); ?>"><?PHP echo htmlspecialchars($a->ip); ?></a></td>
     							</tr>
     							<?PHP endforeach; ?>
 					        </tbody>
