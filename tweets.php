@@ -108,23 +108,23 @@
                                     <?PHP else : ?>
                                     <tr>
                                     <?PHP endif; ?>
-                                        <td><img src="<?PHP echo $t->profile_img; ?>" style="width:48px;height:48px;"></td>
+                                        <td><img src="<?PHP echo htmlspecialchars($t->profile_img); ?>" style="width:48px;height:48px;"></td>
                                         <td>
-                                            <strong><a href="http://twitter.com/<?PHP echo $t->username; ?>"><?PHP echo $t->username; ?></a></strong>
+                                            <strong><a href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>"><?PHP echo $t->username; ?></a></strong>
                                             <br>
-                                            <a style="font-size:80%;" href="http://twitter.com/<?PHP echo $t->username; ?>/status/<?PHP echo $t->tweet_id; ?>"><?PHP echo time2str($t->dt); ?></a>
+                                            <a style="font-size:80%;" href="http://twitter.com/<?PHP echo htmlspecialchars($t->username); ?>/status/<?PHP echo $t->tweet_id; ?>"><?PHP echo time2str($t->dt); ?></a>
                                         </td>
                                         <td>
-                                            <?PHP echo twitterfy($t->body); ?><br>
+                                            <?PHP echo htmlspecialchars(twitterfy($t->body)); ?><br>
                                             <span style="font-size:80%;">
                                             <?PHP if($t->replied_to) : ?>
-                                            Replied to <?PHP echo time2str($t->reply_date); ?>
+                                            Replied to <?PHP echo htmlspecialchars(time2str($t->reply_date)); ?>
                                             <?PHP else : ?>
-                                            <a href="tweets.php?id=<?PHP echo $app_id; ?>&amp;reply=<?PHP echo $t->id; ?>">Reply</a>
+                                            <a href="tweets.php?id=<?PHP echo htmlspecialchars($app_id); ?>&amp;reply=<?PHP echo htmlspecialchars($t->id); ?>">Reply</a>
                                             <?PHP endif; ?>
                                             </span>
                                         </td>
-                                        <td><a href="tweets.php?id=<?PHP echo $app_id; ?>&amp;delete=<?PHP echo $t->id; ?>">Delete</a></td>
+                                        <td><a href="tweets.php?id=<?PHP echo htmlspecialchars($app_id); ?>&amp;delete=<?PHP echo htmlspecialchars($t->id); ?>">Delete</a></td>
                                     </tr>
                                     <?PHP endforeach; ?>
                                 </tbody>

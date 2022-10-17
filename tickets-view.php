@@ -66,16 +66,16 @@
                         </div>
                         <div class="bd">
 							<div class="ticket">
-								<img src="<?PHP echo $user->avatar(); ?>">
+								<img src="<?PHP echo htmlspecialchars($user->avatar()); ?>">
 								<p class="float-box">#<?PHP echo htmlspecialchars($ticket->id); ?><br><span><?PHP echo htmlspecialchars($ticket->status); ?></span></p>
 								<h3><?PHP echo htmlspecialchars($ticket->title); ?></h3>
-								<p class="meta">Created by <?PHP echo $user->username; ?> | <?PHP echo dater($ticket->dt_created, 'F j, Y \a\t g:ia'); ?>
+								<p class="meta">Created by <?PHP echo htmlspecialchars($user->username); ?> | <?PHP echo htmlspecialchars(dater($ticket->dt_created, 'F j, Y \a\t g:ia')); ?>
 									<?PHP if($milestone->ok()) : ?>
-									 | in <a href="tickets-milestone.php?mid=<?PHP echo $milestone->id; ?>"><?PHP echo htmlspecialchars($milestone->title); ?></a>
+									 | in <a href="tickets-milestone.php?mid=<?PHP echo htmlspecialchars($milestone->id); ?>"><?PHP echo htmlspecialchars($milestone->title); ?></a>
 									<?PHP endif; ?>
 								</p>
 								<div class="markdown">
-									<?PHP echo premarkdown($ticket->description); ?>
+									<?PHP echo htmlspecialchars(premarkdown($ticket->description)); ?>
 								</div>
 							</div>
 							<div class="comments">
@@ -87,7 +87,7 @@
 									<p class="changes"><?PHP echo $c; ?></p>
 									<?PHP endforeach; ?>
 									<div class="markdown">
-										<?PHP echo premarkdown($th->comment); ?>
+										<?PHP echo htmlspecialchars(premarkdown($th->comment)); ?>
 									</div>
 								</div>
 								<?PHP endforeach; ?>
@@ -101,13 +101,13 @@
 										<td>
 											<p><label for="assigned_to">Assign To</label><br><select name="assigned_to" id="assigned_to">
 												<option value="-1">-- None --</option>
-												<?PHP echo ddAssignedTo($ticket); ?>
+												<?PHP echo htmlspecialchars(ddAssignedTo($ticket)); ?>
 											</select></p>
 										</td>
 										<td>
 											<p><label for="milestone_id">Milestone</label><br><select name="milestone_id" id="milestone_id">
 												<option value="-1">-- None --</option>
-												<?PHP echo ddMilestone($ticket); ?>
+												<?PHP echo htmlspecialchars(ddMilestone($ticket)); ?>
 											</select></p>
 										</td>
 										<td>

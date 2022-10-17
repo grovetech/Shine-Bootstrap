@@ -125,12 +125,12 @@
 <?PHP foreach($orders as $o) : ?>
 
                                         <tr>
-										<td><?PHP echo $o->applicationName(); ?></td>
-										<td><?PHP echo $o->first_name; ?> <?PHP echo $o->last_name; ?></td>
+										<td><?PHP echo htmlspecialchars($o->applicationName()); ?></td>
+										<td><?PHP echo htmlspecialchars($o->first_name); ?> <?PHP echo htmlspecialchars($o->last_name); ?></td>
 										<td><a href="mailto:<?PHP echo utf8_encode($o->payer_email); ?>"><?PHP echo utf8_encode($o->payer_email); ?></a></td>
-										<td><?PHP echo $o->type; ?></td>
-										<td><?PHP echo dater($o->dt, 'm/d/Y g:ia') ?></td>
-										<td><?PHP echo $o->intlAmount(); ?></td>
+										<td><?PHP echo htmlspecialchars($o->type); ?></td>
+										<td><?PHP echo htmlspecialchars(dater($o->dt, 'm/d/Y g:ia')) ?></td>
+										<td><?PHP echo htmlspecialchars($o->intlAmount()); ?></td>
 										<td><a href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>" class="btn btn-sm btn-success">Edit</a></td>
                                         </tr>
 <?PHP endforeach; ?>
@@ -142,7 +142,7 @@
 <div class="text-center">
 <nav aria-label="Page navigation example">
     <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="orders.php?page=<?PHP echo $pager->prevPage(); ?>&amp;id=<?PHP echo @$app_id; ?>">&#171; Prev</a></li>
+    <li class="page-item"><a class="page-link" href="orders.php?page=<?PHP echo htmlspecialchars($pager->prevPage()); ?>&amp;id=<?PHP echo htmlspecialchars(@$app_id); ?>">&#171; Prev</a></li>
     <?PHP for($i = 1; $i <= $pager->numPages; $i++) : ?>
     <?PHP if($i == $pager->page) : ?>
     <li class="page-item active"><a class="page-link" href="orders.php?page=<?PHP echo $i; ?>&amp;id=<?PHP echo @$app_id; ?>"><?PHP echo $i; ?></a></li>
@@ -150,7 +150,7 @@
     <li class="page-item"><a class="page-link" href="orders.php?page=<?PHP echo $i; ?>&amp;id=<?PHP echo @$app_id; ?>"><?PHP echo $i; ?></a></li>
     <?PHP endif; ?>
     <?PHP endfor; ?>
-    <li class="page-item"><a class="page-link" href="orders.php?page=<?PHP echo $pager->nextPage(); ?>&amp;id=<?PHP echo @$app_id; ?>">Next &#187;</a></li>
+    <li class="page-item"><a class="page-link" href="orders.php?page=<?PHP echo htmlspecialchars($pager->nextPage()); ?>&amp;id=<?PHP echo htmlspecialchars(@$app_id); ?>">Next &#187;</a></li>
     </ul>
 </nav>
 </div>
