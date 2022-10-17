@@ -244,7 +244,7 @@
     							<?PHP foreach($orders as $o) : ?>
     							<tr>
     							    <td><?PHP echo time2str($o->dt); ?></td>
-    							    <td><a href="order.php?id=<?PHP echo $o->id; ?>"><?PHP echo utf8_encode($o->first_name); ?> <?PHP echo utf8_encode($o->last_name); ?></a></td>
+    							    <td><a href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>"><?PHP echo utf8_encode($o->first_name); ?> <?PHP echo utf8_encode($o->last_name); ?></a></td>
     							    <td><?PHP echo $o->applicationName(); ?></td>
     							</tr>
     							<?PHP endforeach; ?>

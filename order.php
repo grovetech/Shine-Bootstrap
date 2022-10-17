@@ -50,7 +50,7 @@
 <div class="row">
 <div class="col-lg-12">
 
- <h1 class="page-header">Order #<?PHP echo $o->id; ?><?PHP if($o->deactivated == 1) : ?> (Deactivated) <?PHP endif; ?></h1>
+ <h1 class="page-header">Order #<?PHP echo htmlspecialchars($o->id); ?><?PHP if($o->deactivated == 1) : ?> (Deactivated) <?PHP endif; ?></h1>
 
 </div>
 
@@ -63,7 +63,7 @@
                 <div class="col-lg-12">
                     <div class="card card-default">
                         <div class="card-header">
-                            Order #<?PHP echo $o->id; ?><?PHP if($o->deactivated == 1) : ?> (Deactivated) <?PHP endif; ?>
+                            Order #<?PHP echo htmlspecialchars($o->id); ?><?PHP if($o->deactivated == 1) : ?> (Deactivated) <?PHP endif; ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
@@ -95,8 +95,8 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
-                            <form action="order.php?id=<?PHP echo $o->id; ?>" method="post" class="bd">
-								<textarea  name="notes" id="notes" class="form-control"><?PHP echo $o->notes; ?></textarea>
+                            <form action="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>" method="post" class="bd">
+								<textarea  name="notes" id="notes" class="form-control"><?PHP echo htmlspecialchars($o->notes); ?></textarea>
 <br>
 								<input type="submit" name="btnNotes" value="Save Notes" id="btnNotes" class="btn btn-lg btn-success btn-block">
 <br>
@@ -135,7 +135,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
-                            <p><a href="activations.php?q=<?PHP echo $o->payer_email; ?>">Activated <?PHP echo $o->activationCount(); ?> times</a></p>
+                            <p><a href="activations.php?q=<?PHP echo htmlspecialchars($o->payer_email); ?>">Activated <?PHP echo $o->activationCount(); ?> times</a></p>
 					    <table class="table table-striped">
 					        <thead>
 					            <tr>
@@ -170,12 +170,12 @@
                         <!-- /.panel-heading -->
                         <div class="card-body">
                             <ul class="biglist">
-							<li><a class="btn btn-secondary btn-block" href="order.php?id=<?PHP echo $o->id; ?>&amp;act=email" id="email">Email to User</a></li><br>
+							<li><a class="btn btn-secondary btn-block" href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>&amp;act=email" id="email">Email to User</a></li><br>
 							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(); ?>">Download Link (does not expire)</a></li><br>
 							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(86400); ?>">Download Link (1 day)</a></li><br>
 							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(86400 * 3); ?>">Download Link (3 days)</a></li><br>
 							<li><a class="btn btn-secondary btn-block" href="<?PHP echo $o->getDownloadLink(86400 * 7); ?>">Download Link (1 week)</a></li><br>
-							<li><a class="btn btn-secondary btn-block" href="order.php?id=<?PHP echo $o->id; ?>&amp;act=deactivate" id="deactivate">Deactivate License</a></li>
+							<li><a class="btn btn-secondary btn-block" href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>&amp;act=deactivate" id="deactivate">Deactivate License</a></li>
 						</ul>
                         </div>
                         <!-- /.panel-body -->
@@ -197,9 +197,9 @@
                         <div class="card-body">
                             <ul class="biglist">
 							<?PHP if($app->upgrade_app_id > 0) : ?>
-							<li><a class="btn" href="order.php?id=<?PHP echo $o->id; ?>&amp;act=upgrade" id="upgrade">Upgrade Order</a></li>
+							<li><a class="btn" href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>&amp;act=upgrade" id="upgrade">Upgrade Order</a></li>
 							<?PHP endif; ?>
-							<li><a href="order.php?id=<?PHP echo $o->id; ?>&amp;act=delete" id="delete" class="btn btn-danger">Delete Order</a></li>
+							<li><a href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>&amp;act=delete" id="delete" class="btn btn-danger">Delete Order</a></li>
 						</ul>
                         </div>
                         <!-- /.panel-body -->
@@ -237,6 +237,6 @@
 <?PHP include('inc/footer.inc.php'); ?>
 <script type="text/javascript" charset="utf-8">
 	$(function() {
-		$('#rapportive').load('rapportive.php?email=<?PHP echo $o->payer_email; ?>');
+		$('#rapportive').load('rapportive.php?email=<?PHP echo htmlspecialchars($o->payer_email); ?>');
 	});
 </script>

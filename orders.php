@@ -131,7 +131,7 @@
 										<td><?PHP echo $o->type; ?></td>
 										<td><?PHP echo dater($o->dt, 'm/d/Y g:ia') ?></td>
 										<td><?PHP echo $o->intlAmount(); ?></td>
-										<td><a href="order.php?id=<?PHP echo $o->id; ?>" class="btn btn-sm btn-success">Edit</a></td>
+										<td><a href="order.php?id=<?PHP echo htmlspecialchars($o->id); ?>" class="btn btn-sm btn-success">Edit</a></td>
                                         </tr>
 <?PHP endforeach; ?>
                                     </tbody>
